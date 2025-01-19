@@ -1,11 +1,8 @@
 #ifndef SENSOR_NODE_H
 #define SENSOR_NODE_H
 
-// #include "../ExtImu/ExtImu.hpp"
 #include "../hikSDK/include/MvCameraControl.h"
 // ROS
-// #include "robot_msgs/msg/sensor_data.hpp"
-// #include "recorder.hpp"
 #include "std_msgs/msg/string.hpp"
 #include <memory>
 #include <mutex>
@@ -20,7 +17,6 @@
 #include <rclcpp/utilities.hpp>
 #include <rclcpp_components/register_node_macro.hpp>
 #include <sensor_msgs/msg/image.hpp>
-// #include <sensor_msgs/msg/imu.hpp>
 #include <stack>
 
 // namespace hik_camera
@@ -60,7 +56,6 @@ private:
     MV_CC_PIXEL_CONVERT_PARAM convert_param_; //camera conversion param
     std::string camera_name_;
     std::string camera_cfg_name_;
-    // robot_msgs::msg::SensorData::SharedPtr sensor_msg_;
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr sensor_pub_;
 
 
