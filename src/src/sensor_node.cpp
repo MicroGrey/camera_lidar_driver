@@ -43,7 +43,7 @@ void sensor::SensorNode::init_node() {
     convert_param_.enDstPixelType = PixelType_Gvsp_BGR8_Packed;
 
     sensor_pub_ = this->create_publisher<sensor_msgs::msg::Image>(
-        "camera/image_raw",
+        "/camera/" + camera_name_,
         rclcpp::QoS(rclcpp::KeepLast(1)).best_effort());
 
     int target_fps = 0;
