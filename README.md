@@ -46,14 +46,16 @@ ros2 launch sensor sensor.launch.py
 ``` bash
 # 录制rosbag
 ros2 bag record /camera/image_raw /livox/lidar --output ./middle_1
+
 # 预处理
 ros2 run direct_visual_lidar_calibration preprocess calib middle_preprocessed -a \
   --camera_model plumb_bob \
-  --camera_intrinsics 3593.00398,3592.77979,2029.22387,1252.53403 \
-  --camera_distortion_coeffs -0.07277881,0.07911976,0.00040615,0.00047037,0.23331896  
+  --camera_intrinsics 4819.40253,4820.07925,2040.75325,1235.20464 \
+  --camera_distortion_coeffs 0.00506582,0.10235385,-0.00122684,-0.00035444,-0.11290822
 
 # 粗校准
 ros2 run direct_visual_lidar_calibration initial_guess_manual middle_preprocessed/
 # 标定
 ros2 run direct_visual_lidar_calibration calibrate middle_preprocessed/
+# T_camera_lidar 是 lidar2camera ，是雷达项目里所需要的
 ```
