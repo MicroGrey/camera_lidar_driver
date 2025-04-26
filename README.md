@@ -41,3 +41,19 @@ ros2 launch sensor sensor.launch.py
 
 ![example](image.png)
 ### 在项目根目录新建camera文件夹放你的mfs文件
+
+标定外参
+``` bash
+# 录制rosbag
+ros2 bag record /camera/image_raw /livox/lidar --output ./middle_1
+# 预处理
+ros2 run direct_visual_lidar_calibration preprocess calib middle_preprocessed -a \
+  --camera_model plumb_bob \
+  --camera_intrinsics 3593.00398,3592.77979,2029.22387,1252.53403 \
+  --camera_distortion_coeffs -0.07277881,0.07911976,0.00040615,0.00047037,0.23331896  
+
+# 粗校准
+ros2 run direct_visual_lidar_calibration initial_guess_manual middle_preprocessed/
+# 标定
+ros2 run direct_visual_lidar_calibration calibrate middle_preprocessed/
+```

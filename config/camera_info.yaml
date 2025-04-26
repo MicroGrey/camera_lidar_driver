@@ -6,5 +6,5 @@ sensor:
     image_height: 480
     gain: 32.0
     imu_usb_hid: 'USB VID:PID=0483:5740 SNR=396B37573137'
-    camera_config_url: 'camera/MV-CU060-10UC_DA4768344.mfs' #最好写成绝对路径！
+    camera_config_url: 'camera/MV-CH100-60UC_DA2152113.mfs' #最好写成绝对路径！
     fps: 100
